@@ -1,0 +1,70 @@
+<!-- view-edit-profile.component.html -->
+<h2>Patient Profile</h2>
+<div *ngIf="patientProfileForm" style="margin-top:28px">
+  <form [formGroup]="patientProfileForm">
+
+<div class="row">
+
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="first_name" >
+      <mat-error *ngIf="patientProfileForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Middle Name</mat-label>
+      <input matInput formControlName="middle_name" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="last_name" >
+      <mat-error *ngIf="patientProfileForm.get('lastName')?.hasError('required')">Last Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age" >
+      <mat-error *ngIf="patientProfileForm.get('age')?.hasError('required')">Age is required</mat-error>
+      <mat-error *ngIf="patientProfileForm.get('age')?.hasError('pattern')">Invalid Age</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <input matInput formControlName="gender" >
+      <mat-error *ngIf="patientProfileForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Race</mat-label>
+      <input matInput formControlName="race" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Occupation Class</mat-label>
+      <input matInput formControlName="occupation_class">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Medical History Description</mat-label>
+      <input matInput formControlName="medical_history_description" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phone_number" >
+      <mat-error *ngIf="patientProfileForm.get('phoneNumber')?.hasError('pattern')">Invalid Phone Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" >
+    </mat-form-field>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <button mat-raised-button color="primary" *ngIf="!isEditMode" (click)="toggleEditMode()">Edit Profile</button>
+    <button mat-raised-button color="primary" *ngIf="isEditMode" (click)="toggleEditMode()">Save Changes</button>
+  </div>
+  </form>
+</div>

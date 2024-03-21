@@ -1,0 +1,22 @@
+
+<!-- login.component.html -->
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Welcome to UI Health</mat-card-title>
+      <mat-card-subtitle>Login to your account</mat-card-subtitle>
+    </mat-card-header>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Your login form fields here -->
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+
+      <!-- Password Field -->
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+      </mat-form-field>
+      <button type="submit">Login</button>
+    </form>
+  </mat-card>
+</div>

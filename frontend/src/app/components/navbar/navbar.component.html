@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <!-- Your logo or app name goes here -->
+      <span>My App</span>
+    </div>
+
+    <div class="navbar-right">
+      <button *ngIf="!isUserLoggedIn()" mat-button color="primary" (click)="gotosignup()">Sign Up</button>
+      <button *ngIf="!isUserLoggedIn()" mat-button color="primary" (click)="gotologin()">Login</button>
+      <button *ngIf="isUserLoggedIn()" mat-button color="warn" (click)="logout()">Logout</button>
+      <button *ngIf="isUserLoggedIn()" mat-button color="primary" (click)="dashboard()">Dashboard</button>
+    </div>
+  </div>
+</nav>

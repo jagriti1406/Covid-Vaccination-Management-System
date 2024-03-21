@@ -1,0 +1,73 @@
+<!-- nurse-details.component.html -->
+<div *ngIf="nurseDetails">
+  <h2>Nurse Details</h2>
+  <p><strong>Nurse ID:</strong> {{ nurseDetails.nurseId }}</p>
+  <p><strong>First Name:</strong> {{ nurseDetails.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ nurseDetails.lastName }}</p>
+  <p><strong>Age:</strong> {{ nurseDetails.age }}</p>
+  <p><strong>Gender:</strong> {{ nurseDetails.gender }}</p>
+
+  <h3>Edit Nurse Details</h3>
+  <div *ngIf="isEditMode">
+    <form [formGroup]="editNurseForm" (ngSubmit)="saveChanges()">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Middle Name</mat-label>
+        <input matInput formControlName="middleName" [disabled]="!isAdmin">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput formControlName="gender" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" [disabled]="!isAdmin && !isEditMode" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" [disabled]="!isAdmin" required>
+        <mat-error *ngIf="editNurseForm.get('email').hasError('email')">
+          Please enter a valid email address.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Role ID</mat-label>
+        <input matInput formControlName="roleId" [disabled]="!isAdmin" required>
+      </mat-form-field>
+
+      <mat-dialog-actions>
+        <button mat-button (click)="toggleEditMode()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save Changes</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+  <button mat-raised-button *ngIf="isAdmin" (click)="toggleEditMode()">Edit Nurse Details</button>
+</div>

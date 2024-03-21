@@ -1,0 +1,49 @@
+<!-- view-nurse-schedule.component.html -->
+<div class="header">
+  <h2>Nurse Schedules</h2>
+</div>
+
+<mat-table [dataSource]="nurseSchedules" class="mat-elevation-z8">
+  <!-- Schedule ID Column -->
+
+
+  <!-- Time Slot ID Column -->
+
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell *matCellDef="let schedule">{{ schedule.date }}</mat-cell>
+  </ng-container>
+
+  <!-- End Time Column -->
+  <ng-container matColumnDef="end_time">
+    <mat-header-cell *matHeaderCellDef>End Time</mat-header-cell>
+    <mat-cell *matCellDef="let schedule">{{ schedule.end_time }}</mat-cell>
+  </ng-container>
+
+  <!-- Max Patient Capacity Column -->
+  <ng-container matColumnDef="max_patient_capacity">
+    <mat-header-cell *matHeaderCellDef>Max Patient Capacity</mat-header-cell>
+    <mat-cell *matCellDef="let schedule">{{ schedule.max_patient_capacity }}</mat-cell>
+  </ng-container>
+
+  <!-- Nurse Count Column -->
+  <ng-container matColumnDef="nurse_count">
+    <mat-header-cell *matHeaderCellDef>Nurse Count</mat-header-cell>
+    <mat-cell *matCellDef="let schedule">{{ schedule.nurse_count }}</mat-cell>
+  </ng-container>
+
+  <!-- Start Time Column -->
+  <ng-container matColumnDef="start_time">
+    <mat-header-cell *matHeaderCellDef>Start Time</mat-header-cell>
+    <mat-cell *matCellDef="let schedule">{{ schedule.start_time }}</mat-cell>
+  </ng-container>
+
+  <!-- Time Slot ID Column -->
+
+
+  <!-- Define the order of columns -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

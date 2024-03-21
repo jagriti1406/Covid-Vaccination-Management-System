@@ -1,0 +1,24 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f0f0f0;
+  /* height: 100vh; */
+}
+
+.signup-card {
+  max-width: 900px;
+  width: 100%;
+}
+.mat-card-title {
+  justify-content: center; /* Center align the title */
+}
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+}

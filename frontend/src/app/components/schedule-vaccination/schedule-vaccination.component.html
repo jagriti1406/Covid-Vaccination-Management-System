@@ -1,0 +1,38 @@
+<!-- vaccine-form.component.html -->
+<div>
+    <form [formGroup]="vaccineForm" (ngSubmit)="onSubmit()">
+
+      <!-- Dropdown for vaccines -->
+
+      <mat-form-field  class="wide-dropdown">
+        <mat-label>Select Vaccine</mat-label>
+        <mat-select formControlName="vaccine">
+          <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine.vaccine_id">
+            {{ vaccine.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Dropdown for time slots -->
+
+      <mat-form-field class="wide-dropdown">
+        <mat-label>Select Time Slot</mat-label>
+        <mat-select formControlName="timeSlot">
+          <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.time_slot_id">
+            Date:{{timeSlot.date | date: 'yyyy-MM-dd'}}, Time:{{ timeSlot.start_time }} - {{ timeSlot.end_time }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form field for dose number -->
+      <mat-form-field>
+        <mat-label>Dose Number</mat-label>
+        <input matInput formControlName="doseNumber" type="number">
+      </mat-form-field>
+
+      <!-- Submit button -->
+      <div class="row" stylele="margin-top:8px">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+    </form>
+  </div>

@@ -1,0 +1,10 @@
+/* view-vaccination-schedule.component.css */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+button {
+  margin-left: 10px;
+}

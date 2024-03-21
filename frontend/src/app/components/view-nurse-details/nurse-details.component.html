@@ -1,0 +1,83 @@
+<!-- nurse-details.component.html -->
+<mat-card *ngIf="nurseDetails">
+  <mat-card-content>
+    <h2>Nurse Details</h2>
+    <p><strong>Email:</strong> {{ nurseDetails.email }}</p>
+    <p><strong>First Name:</strong> {{ nurseDetails.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ nurseDetails.last_name }}</p>
+    <p><strong>Age:</strong> {{ nurseDetails.age }}</p>
+    <p><strong>Gender:</strong> {{ nurseDetails.gender }}</p>
+    <p><strong>Address</strong> {{ nurseDetails.address }}</p>
+    <p><strong>Phone Number:</strong> {{ nurseDetails.phone_number }}</p>
+
+
+    <h3>Edit Nurse Details</h3>
+    <div *ngIf="isEditMode">
+      <form [formGroup]="editNurseForm" (ngSubmit)="saveChanges()">
+
+        <!-- Email -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email"  required>
+        </mat-form-field>
+
+        <!-- Password -->
+
+
+        <!-- First Name -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="first_name"  required>
+        </mat-form-field>
+
+        <!-- Middle Name -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>Middle Name</mat-label>
+          <input matInput formControlName="middle_name" >
+        </mat-form-field>
+
+        <!-- Last Name -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="last_name"  required>
+        </mat-form-field>
+
+        <!-- Age -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age"  required>
+        </mat-form-field>
+
+        <!-- Gender -->
+        <mat-form-field appearance="fill" *ngIf="isAdmin">
+          <mat-label>Gender</mat-label>
+          <input matInput formControlName="gender"  required>
+        </mat-form-field>
+
+        <!-- Phone Number -->
+        <mat-form-field appearance="fill"  *ngIf="!isAdmin">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone_number"  required>
+        </mat-form-field>
+
+        <!-- Address -->
+        <mat-form-field appearance="fill" *ngIf="!isAdmin">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address"  required>
+        </mat-form-field>
+
+        <!-- Add other form fields with appearance="fill" -->
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button mat-button (click)="toggleEditMode()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+
+    <button mat-raised-button (click)="toggleEditMode()">Edit Nurse Details</button>
+  </mat-card-content>
+</mat-card>
+<app-view-nurse-schedule [nurseIdinput]="this.nurseId"></app-view-nurse-schedule>
+

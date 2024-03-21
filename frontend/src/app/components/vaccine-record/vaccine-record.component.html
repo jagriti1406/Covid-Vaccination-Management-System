@@ -1,0 +1,41 @@
+<!-- vaccine-record.component.html -->
+<div  style="padding-top:24px">
+  <form [formGroup]="vaccineRecordForm" (ngSubmit)="onSubmit()">
+
+    <!-- Dropdown for nurse schedules -->
+    <mat-form-field style="width: 500px; margin-bottom: 16px; padding-right:16px;margin-left:16px">
+      <mat-label>Select Nurse Schedule</mat-label>
+      <mat-select formControlName="nurseSchedule">
+        <mat-option *ngFor="let schedule of nurseSchedules" [value]="schedule.time_slot_id">
+           {{ schedule.date | date:'shortDate' }} - {{ schedule.start_time }} to {{ schedule.end_time }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Submit button -->
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+<h2> Select the dropdown to fetch List of Vaccine Schedules</h2>
+  <!-- Table to display vaccination schedules -->
+  <div class="mat-elevation-z8" style="margin-top: 16px;">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Define the columns -->
+      <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+        <th mat-header-cell *matHeaderCellDef>{{ col | titlecase }}</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <!-- Display the button only in the 'actions' column -->
+          <button *ngIf="col === 'actions'" mat-raised-button color="accent" (click)="onRegister(element)">
+            Record
+          </button>
+          <!-- Display other data in other columns -->
+          <span *ngIf="col !== 'actions'">{{ element[col] }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Define the rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

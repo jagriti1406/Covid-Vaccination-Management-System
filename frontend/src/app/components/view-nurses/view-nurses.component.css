@@ -1,0 +1,15 @@
+/* view-nurses.component.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header button {
+  margin-left: 10px;
+}

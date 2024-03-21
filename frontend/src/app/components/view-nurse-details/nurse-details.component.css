@@ -1,0 +1,35 @@
+/* view-nurse-details.component.css */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.detail {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.value {
+  margin: 0;
+}

@@ -1,0 +1,16 @@
+<!-- view-time-slots.component.html -->
+<div *ngFor="let timeSlot of timeSlots">
+  <mat-card>
+    <mat-card-title>{{ timeSlot.date | date:'mediumDate' }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ timeSlot.start_time | date:'shortTime' }} - {{ timeSlot.end_time | date:'shortTime' }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>Max Patient Capacity: {{ timeSlot.max_patient_capacity }}</p>
+      <p>Remaining Capacity: {{ calculateRemainingCapacity(timeSlot) }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="scheduleVaccination(timeSlot.t_id)">Schedule Vaccination</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

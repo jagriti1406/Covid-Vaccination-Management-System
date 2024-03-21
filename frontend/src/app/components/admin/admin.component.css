@@ -1,0 +1,7 @@
+/* Add some spacing between buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  max-width:80%;
+  gap: 10px; /* Adjust the spacing as needed */
+}

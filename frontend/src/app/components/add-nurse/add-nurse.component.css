@@ -1,0 +1,11 @@
+/* add-nurse.component.css */
+
+.add-nurse-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}

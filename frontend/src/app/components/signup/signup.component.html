@@ -1,0 +1,86 @@
+<!-- signup.component.html -->
+<div class="signup-container" >
+  <mat-card class="signup-card">
+    <mat-card-header >
+      <div style="margin-top:25px">
+      <mat-card-title><h2>Welcome to UI Health</h2></mat-card-title>
+    </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <!-- Email Field -->
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+        </mat-form-field>
+
+        <!-- Role Dropdown -->
+
+
+        <!-- SSN Field -->
+        <mat-form-field>
+          <input matInput placeholder="SSN" formControlName="ssn" required>
+        </mat-form-field>
+
+        <!-- First Name Field -->
+        <mat-form-field>
+          <input matInput placeholder="First Name" formControlName="first_name" required>
+        </mat-form-field>
+
+        <!-- Middle Name Field -->
+        <mat-form-field>
+          <input matInput placeholder="Middle Name" formControlName="middle_name">
+        </mat-form-field>
+
+        <!-- Last Name Field -->
+        <mat-form-field>
+          <input matInput placeholder="Last Name" formControlName="last_name" required>
+        </mat-form-field>
+
+        <!-- Age Field -->
+        <mat-form-field>
+          <input matInput placeholder="Age" formControlName="age" required>
+        </mat-form-field>
+
+        <!-- Gender Field -->
+        <mat-form-field>
+          <input matInput placeholder="Gender" formControlName="gender" required>
+        </mat-form-field>
+
+        <!-- Race Field -->
+        <mat-form-field>
+          <input matInput placeholder="Race" formControlName="race">
+        </mat-form-field>
+
+        <!-- Occupation Class Field -->
+        <mat-form-field>
+          <input matInput placeholder="Occupation Class" formControlName="occupation_class">
+        </mat-form-field>
+
+        <!-- Medical History Description Field -->
+        <mat-form-field>
+          <input matInput placeholder="Medical History Description" formControlName="medical_history_description">
+        </mat-form-field>
+
+        <!-- Phone Number Field -->
+        <mat-form-field>
+          <input matInput placeholder="Phone Number" formControlName="phone_number">
+        </mat-form-field>
+
+        <!-- Address Field -->
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="address">
+        </mat-form-field>
+
+        <!-- Signup Button -->
+        <button mat-raised-button color="primary" type="submit">Signup</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,55 @@
+<!-- vaccine-list.component.html -->
+
+<!-- <div class="mat-elevation-z8"> -->
+  <div class="container-fluis">
+  <table mat-table [dataSource]="vaccines" class="mat-elevation-z8">
+
+    <!-- Loop through dynamic columns -->
+    <ng-container *ngFor="let column of dynamicColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
+      <td mat-cell *matCellDef="let vaccine">
+        <ng-container *ngIf="!vaccine.isEditing; else editMode">
+          {{ vaccine[column] }}
+        </ng-container>
+
+        <ng-template #editMode>
+          <!-- Use a form control for each field -->
+          <mat-form-field >
+            <input matInput [(ngModel)]="vaccine[column]" placeholder="{{ column | titlecase }}" />
+          </mat-form-field>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!-- Static "actions" column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let vaccine">
+        <ng-container *ngIf="!vaccine.isEditing; else editMode">
+          <button mat-icon-button color="primary" (click)="startEdit(vaccine)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </ng-container>
+
+        <ng-template #editMode>
+          <button mat-icon-button color="primary" (click)="saveChanges(vaccine)">
+            <mat-icon>done</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="cancelEdit(vaccine)">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </ng-template>
+
+        <!-- <button mat-icon-button color="primary" (click)="viewVaccineDetails(vaccine.vaccine_id)">
+          <mat-icon>info</mat-icon>
+        </button> -->
+      </td>
+    </ng-container>
+
+    <!-- Define the order of columns -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<!-- </div> -->
