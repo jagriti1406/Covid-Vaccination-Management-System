@@ -38,7 +38,7 @@ Patient:
 - View Info: Patients see their details, schedules, and vaccination history.
 
 **Guidelines and Setup:**
-- Clone the application- git clone git@github.com:jagriti1406/COVID-VACCINATION-PORTAL.git
+- Clone the application- git clone git@github.com:jagriti1406/Covid-Vaccination-Management-System.git
 - Go to the backend folder and perform the following flask commands
 - Go to the front end folder and perform the commands listed in angular section below
 
