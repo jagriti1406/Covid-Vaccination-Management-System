@@ -1,7 +1,7 @@
 # COVID-VACCINATION-PORTAL
 
 **Description:**
-This project is a database system developed to manage vaccination processes and scheduling. It follows a two-tier architecture with a back-end database and a front-end application. The system handles vaccine information, nurse scheduling, patient registration, appointment scheduling, vaccination records.
+This project is a vaccination portal created to manage vaccination processes and scheduling. It follows a two-tier architecture with a back-end database and a front-end application. The system handles vaccine information, nurse scheduling, patient registration, appointment scheduling, vaccination records.
 
 **Key Features:**
 - User authentication with roles (admin, nurse, patient)
